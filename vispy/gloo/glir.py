@@ -839,7 +839,14 @@ class GlirParser(BaseGlirParser):
             self.capabilities['gl_version'] = gl.glGetParameter(gl.GL_VERSION)
             self.capabilities['max_texture_size'] = \
                 gl.glGetParameter(gl.GL_MAX_TEXTURE_SIZE)
+
+            if self.capabilities['gl_version'] == '':
+                logger.warning('Could not determine OpenGL version. Some '
+                               'functionality may fail.')
+                return
+
             this_version = self.capabilities['gl_version'].split(' ')
+
             if this_version[0] == "OpenGL":
                 # For OpenGL ES, the version string has the format:
                 # "OpenGL ES <version number> <vendor-specific information>"
