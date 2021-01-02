@@ -1120,7 +1120,7 @@ cf.CFShow.argtypes = [c_void_p]
 
 # Even though we don't use this directly, it must be loaded so that
 # we can find the NSApplication, NSWindow, and NSView classes.
-appkit = cdll.LoadLibrary(util.find_library('AppKit'))
+appkit = cdll.LoadLibrary('/System/Library/Frameworks/AppKit.framework/AppKit')
 
 NSDefaultRunLoopMode = c_void_p.in_dll(appkit, 'NSDefaultRunLoopMode')
 NSEventTrackingRunLoopMode = c_void_p.in_dll(
