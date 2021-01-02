@@ -40,7 +40,7 @@ elif sys.platform.startswith('win'):
 else:
     # Unix-ish
     if sys.platform.startswith('darwin'):
-        _fname = ctypes.util.find_library('OpenGL')
+        _fname = '/System/Library/Frameworks/OpenGL.framework/OpenGL'
     else:
         _fname = ctypes.util.find_library('GL')
     if not _fname:
